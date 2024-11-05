@@ -1,0 +1,1 @@
+#use X and polygon API to give information on inputed stock and use X sentiment analysis to make predictions
