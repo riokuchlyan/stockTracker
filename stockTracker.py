@@ -2,17 +2,10 @@ from polygon import RESTClient
 
 client = RESTClient("y0pnIt8YeMJpLoSTQyFzTjU1vXPpsXlM")
 
-aggs = []
-for a in client.list_aggs(
-    "AAPL",
-    1,
-    "minute",
-    "2022-01-01",
-    "2023-02-03",
-    limit=50000,
-):
-    aggs.append(a)
+def getStockData(stocksTicker, date):
+    information = client.get_daily_open_close_agg(stocksTicker.upper(), date)
+    return str(information).split(", ")[3:7]
 
-print(aggs)
 
+print(getStockData("aapl", "2024-11-08"))
 #use X and polygon API to give information on inputed stock and use X sentiment analysis to make predictions
